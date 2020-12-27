@@ -1,0 +1,61 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title> Create Employee </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <form [formGroup]="form" style="height: 100%;">
+      <ion-grid>
+        <ion-row style=" text-align: left;">
+          <ion-col>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Name :</ion-label>
+                  <ion-input type="text" formControlName="name"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Email :</ion-label>
+                  <ion-input type="text" formControlName="email"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Phone Number : </ion-label>
+                  <ion-input type="tel" formControlName="phone"></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-button color="medium" (click)="takePicture()" style="margin-right: 35px;">Take picture</ion-button>
+              <ion-avatar *ngIf="photo">
+                <img [src]="photo" width="50" style="float:right; border-radius: 100%;" />
+              </ion-avatar>
+            </ion-row>
+            <ion-button color="medium" (click)="currentLocation()">Current location</ion-button>
+            <ion-item>
+              <ion-textarea *ngIf="address" readOnly="true" rows="1" cols="20">{{address.city}}
+                ,{{address.state}},{{address.country}},zipcode - {{address.zipcode}} </ion-textarea>
+            </ion-item>
+            <ion-row>
+              <ion-col>
+                <ion-button [disabled]="!form.valid" type="submit" color="primary" (click)="onSubmit(form.value)">Save
+                </ion-button>
+                <ion-button type="submit" (click)="dismiss()" color="danger">
+                  Cancel</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-content>
+</ion-app>

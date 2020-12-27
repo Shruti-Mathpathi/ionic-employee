@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Employee List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="showModal()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div *ngFor="let list of employeeList" (click)="navigateToDetail(list.id)">
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-avatar>
+              <img src="{{list.image}}" width="70" style="float:right; border-radius: 100%;">
+            </ion-avatar>
+          </ion-col>
+          <ion-col size="8">
+            <ion-row>
+              <ion-card-title>{{list.name}}</ion-card-title>
+            </ion-row>
+            <ion-row>{{list.email}}</ion-row>
+            <ion-row>{{list.location.city}} {{list.location.state}} {{list.location.country}} {{list.location.zipcode}}
+            </ion-row>
+            <ion-row>{{list.phone}} </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>

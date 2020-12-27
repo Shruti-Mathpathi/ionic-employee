@@ -1,0 +1,7 @@
+{
+  "name": "RyteHealth-DoctorsApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
